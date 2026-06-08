@@ -362,21 +362,35 @@
 
         <!-- ================= TAB 4: KHO THẺ ================= -->
         <section id="tab-cards" class="tab-section">
-            <div class="bg-card-bg border-y-[3px] border-card-border shadow-sm py-3 mb-6 relative mt-2 -mx-4 px-4">
+            <div class="bg-card-bg border-y-[3px] border-card-border shadow-sm py-3 mb-4 relative mt-2 -mx-4 px-4">
                 <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJz48ZmlsdGVyIGlkPSdub2lzZUZpbHRlcic+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuOScgbnVtT2N0YXZlcz0nNCcgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJyBmaWx0ZXI9J3VybCgibm9pc2VGaWx0ZXIpJyBvcGFjaXR5PScwLjE1Jy8+PC9zdmc+'); pointer-events: none;"></div>
                 <h2 class="text-xl font-serif font-black text-[#2c241b] text-center uppercase tracking-widest relative z-10">
                     <i class="fas fa-layer-group text-flag-red mr-2 drop-shadow-sm"></i> Thư Khố
                 </h2>
             </div>
             
-            <h3 class="font-serif font-bold text-[#b8860b] text-lg mb-3 mt-4 border-b border-[#d4c3a3] pb-1 uppercase tracking-wide"><i class="fas fa-question-circle mr-2"></i>Kho Thẻ Câu Hỏi</h3>
-            <div id="cards-grid-questions" class="grid grid-cols-2 gap-4 mb-8">
-                <!-- JavaScript sẽ render thẻ Câu Hỏi vào đây -->
+            <!-- Sub-tabs Container -->
+            <div class="flex justify-center mb-6 bg-paper p-1 rounded-full border border-card-border shadow-inner max-w-sm mx-auto">
+                <button onclick="switchCardSubTab('questions')" id="btn-subtab-questions" class="flex-1 py-2 px-3 rounded-full text-sm font-bold transition-all duration-300 bg-flag-red text-paper shadow-md">
+                    <i class="fas fa-question-circle mr-1"></i> Câu Hỏi
+                </button>
+                <button onclick="switchCardSubTab('functions')" id="btn-subtab-functions" class="flex-1 py-2 px-3 rounded-full text-sm font-bold transition-all duration-300 text-[#8b795d] hover:text-[#4a4031]">
+                    <i class="fas fa-scroll mr-1"></i> Chức Năng
+                </button>
             </div>
 
-            <h3 class="font-serif font-bold text-royal-blue text-lg mb-3 border-b border-[#d4c3a3] pb-1 uppercase tracking-wide"><i class="fas fa-scroll mr-2"></i>Kho Thẻ Chức Năng</h3>
-            <div id="cards-grid-functions" class="grid grid-cols-2 gap-4">
-                <!-- JavaScript sẽ render thẻ Chức Năng vào đây -->
+            <!-- Content for Questions -->
+            <div id="subtab-questions" class="block">
+                <div id="cards-grid-questions" class="grid grid-cols-2 gap-4 pb-20">
+                    <!-- JavaScript sẽ render thẻ Câu Hỏi vào đây -->
+                </div>
+            </div>
+
+            <!-- Content for Functions -->
+            <div id="subtab-functions" class="hidden">
+                <div id="cards-grid-functions" class="grid grid-cols-2 gap-4 pb-20">
+                    <!-- JavaScript sẽ render thẻ Chức Năng vào đây -->
+                </div>
             </div>
         </section>
 
@@ -479,7 +493,33 @@
     </nav>
 
     <script>
+        function switchCardSubTab(tabName) {
+            const secQ = document.getElementById('subtab-questions');
+            const secF = document.getElementById('subtab-functions');
+            const btnQ = document.getElementById('btn-subtab-questions');
+            const btnF = document.getElementById('btn-subtab-functions');
+            
+            if(tabName === 'questions') {
+                secQ.classList.remove('hidden');
+                secQ.classList.add('block');
+                secF.classList.remove('block');
+                secF.classList.add('hidden');
+                
+                btnQ.className = "flex-1 py-2 px-3 rounded-full text-sm font-bold transition-all duration-300 bg-flag-red text-paper shadow-md";
+                btnF.className = "flex-1 py-2 px-3 rounded-full text-sm font-bold transition-all duration-300 text-[#8b795d] hover:text-[#4a4031]";
+            } else {
+                secF.classList.remove('hidden');
+                secF.classList.add('block');
+                secQ.classList.remove('block');
+                secQ.classList.add('hidden');
+                
+                btnF.className = "flex-1 py-2 px-3 rounded-full text-sm font-bold transition-all duration-300 bg-flag-red text-paper shadow-md";
+                btnQ.className = "flex-1 py-2 px-3 rounded-full text-sm font-bold transition-all duration-300 text-[#8b795d] hover:text-[#4a4031]";
+            }
+        }
+
         function switchTab(tabId, btnElement) {
+
             document.querySelectorAll('.tab-section').forEach(tab => {
                 tab.classList.remove('active');
             });
