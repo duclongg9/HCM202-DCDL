@@ -362,13 +362,21 @@
 
         <!-- ================= TAB 4: KHO THẺ ================= -->
         <section id="tab-cards" class="tab-section">
-            <h2 class="text-2xl font-serif font-black text-flag-red mb-1 text-center uppercase drop-shadow-sm tracking-wide">
-                <i class="fas fa-images mr-2 text-royal-blue"></i> Thư Khố
-            </h2>
-            <div class="vintage-divider"></div>
+            <div class="bg-card-bg border-y-[3px] border-card-border shadow-sm py-3 mb-6 relative mt-2 -mx-4 px-4">
+                <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJz48ZmlsdGVyIGlkPSdub2lzZUZpbHRlcic+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuOScgbnVtT2N0YXZlcz0nNCcgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJyBmaWx0ZXI9J3VybCgibm9pc2VGaWx0ZXIpJyBvcGFjaXR5PScwLjE1Jy8+PC9zdmc+'); pointer-events: none;"></div>
+                <h2 class="text-xl font-serif font-black text-[#2c241b] text-center uppercase tracking-widest relative z-10">
+                    <i class="fas fa-layer-group text-flag-red mr-2 drop-shadow-sm"></i> Thư Khố
+                </h2>
+            </div>
             
-            <div id="cards-grid" class="grid grid-cols-3 gap-3 mt-4">
-                <!-- JavaScript sẽ render 81 thẻ HTML vào đây -->
+            <h3 class="font-serif font-bold text-[#b8860b] text-lg mb-3 mt-4 border-b border-[#d4c3a3] pb-1 uppercase tracking-wide"><i class="fas fa-question-circle mr-2"></i>Kho Thẻ Câu Hỏi</h3>
+            <div id="cards-grid-questions" class="grid grid-cols-2 gap-4 mb-8">
+                <!-- JavaScript sẽ render thẻ Câu Hỏi vào đây -->
+            </div>
+
+            <h3 class="font-serif font-bold text-royal-blue text-lg mb-3 border-b border-[#d4c3a3] pb-1 uppercase tracking-wide"><i class="fas fa-scroll mr-2"></i>Kho Thẻ Chức Năng</h3>
+            <div id="cards-grid-functions" class="grid grid-cols-2 gap-4">
+                <!-- JavaScript sẽ render thẻ Chức Năng vào đây -->
             </div>
         </section>
 
@@ -499,20 +507,31 @@
         }
 
         function renderCards() {
-            const grid = document.getElementById('cards-grid');
-            if(!grid) return;
+            const gridQuestions = document.getElementById('cards-grid-questions');
+            const gridFunctions = document.getElementById('cards-grid-functions');
+            if(!gridQuestions || !gridFunctions) return;
             
-            let htmlContent = '';
+            let htmlQuestions = '';
+            let htmlFunctions = '';
+            
             for (let i = 0; i < 81; i++) {
                 let imgNum = 3 + (i * 2); 
-                htmlContent += `
-                    <div class="aspect-[2/3] bg-[#d4c3a3] rounded-lg shadow-md card-3d overflow-hidden relative cursor-pointer border-2 border-card-border" onclick="openLightbox('assets/cards/${imgNum}.jpg')">
+                let htmlContent = `
+                    <div class="aspect-[2/3] bg-[#d4c3a3] rounded-sm shadow-md card-3d overflow-hidden relative cursor-pointer border-[3px] border-[#a89574]" onclick="openLightbox('assets/cards/${imgNum}.jpg')">
                         <img src="assets/cards/${imgNum}.jpg" alt="Thẻ ${i+1}" loading="lazy" class="w-full h-full object-cover transition-transform duration-300 hover:scale-105 filter contrast-110 saturate-75" onerror="this.src='https://placehold.co/200x300/eaddc5/7a1b18?text=Thẻ+${i+1}'">
-                        <div class="absolute bottom-1 right-1 bg-[#2a130f]/80 text-paper text-[10px] px-1.5 py-0.5 rounded shadow-sm font-bold border border-[#4a4031]">${i+1}</div>
+                        <div class="absolute bottom-2 right-2 w-7 h-7 rounded-full bg-paper border-[2px] border-[#a89574] text-flag-red font-serif font-black text-xs flex items-center justify-center shadow-lg opacity-90">${i+1}</div>
                     </div>
                 `;
+                
+                // Giả định 50 thẻ đầu là câu hỏi, 31 thẻ sau là chức năng
+                if (i < 50) {
+                    htmlQuestions += htmlContent;
+                } else {
+                    htmlFunctions += htmlContent;
+                }
             }
-            grid.innerHTML = htmlContent;
+            gridQuestions.innerHTML = htmlQuestions;
+            gridFunctions.innerHTML = htmlFunctions;
         }
 
         const lightbox = document.getElementById('lightbox');
