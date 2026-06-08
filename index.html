@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Dấu Chân Độc Lập</title>
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Lora (Serif) & Inter (Sans-serif) -->
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'flag-red': '#da251d',     /* Đỏ cờ */
+                        'rice-yellow': '#ffcd00',  /* Vàng lúa */
+                        'paper': '#f4ecd8',        /* Màu giấy cũ */
+                        'paper-dark': '#e8deb3',   /* Màu giấy cũ (đậm hơn) */
+                        'ink': '#2c2a25'           /* Màu mực đen ngả nâu */
+                    },
+                    fontFamily: {
+                        serif: ['Lora', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    backgroundImage: {
+                        /* Texture giấy cũ nhẹ nhàng */
+                        'paper-texture': "url('https://www.transparenttextures.com/patterns/aged-paper.png')"
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        body {
+            background-color: #f4ecd8;
+            background-image: url('https://www.transparenttextures.com/patterns/aged-paper.png');
+            /* Khóa scroll toàn trang để có cảm giác như một native app */
+            overflow: hidden;
+            touch-action: pan-y;
+        }
+        
+        /* Ẩn scrollbar nhưng vẫn cho phép scroll bên trong container */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        
+        /* Quản lý trạng thái các tab */
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.3s ease-in-out;
+        }
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        /* Đảm bảo padding an toàn cho các thiết bị có tai thỏ/home indicator */
+        .pb-safe {
+            padding-bottom: env(safe-area-inset-bottom);
+        }
+    </style>
+</head>
+<body class="text-ink font-sans h-screen flex flex-col relative max-w-md mx-auto shadow-2xl bg-paper">
+
+    <!-- Header -->
+    <header class="bg-flag-red text-rice-yellow p-4 shadow-md z-10 flex items-center justify-center relative">
+        <h1 class="text-xl font-serif font-bold text-center uppercase tracking-wider drop-shadow-sm">Dấu Chân Độc Lập</h1>
+        <!-- Hoạ tiết sao vàng nhỏ trang trí (Tuỳ chọn) -->
+        <i class="fas fa-star absolute right-4 text-rice-yellow text-sm opacity-80"></i>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="flex-1 overflow-y-auto no-scrollbar p-5 pb-24 relative bg-paper-texture">
+        
+        <!-- Tab 1: Tổng quan -->
+        <section id="tab-overview" class="tab-content active h-full">
+            <div class="flex flex-col items-center justify-center min-h-[80%] space-y-6">
+                <div class="w-24 h-24 bg-flag-red rounded-full flex items-center justify-center shadow-lg border-4 border-rice-yellow">
+                    <i class="fas fa-flag text-4xl text-rice-yellow"></i>
+                </div>
+                <h2 class="text-3xl font-serif font-bold text-flag-red mb-2 text-center drop-shadow-sm">Tổng Quan</h2>
+                <div class="bg-paper-dark p-5 rounded-xl shadow-inner border border-yellow-600/30 w-full">
+                    <p class="mb-4 text-sm text-center leading-relaxed">Chào mừng bạn đến với <strong class="text-flag-red">Dấu Chân Độc Lập</strong> - Board game mang đậm dấu ấn lịch sử hào hùng của dân tộc Việt Nam.</p>
+                    
+                    <div class="grid grid-cols-3 gap-2 mb-4">
+                        <div class="bg-white/60 p-2 rounded-lg text-center shadow-sm border border-gray-200">
+                            <i class="fas fa-users text-flag-red mb-1 text-lg"></i>
+                            <p class="text-[10px] font-bold text-gray-700">2-6 Người</p>
+                        </div>
+                        <div class="bg-white/60 p-2 rounded-lg text-center shadow-sm border border-gray-200">
+                            <i class="fas fa-user-plus text-flag-red mb-1 text-lg"></i>
+                            <p class="text-[10px] font-bold text-gray-700">12+ Tuổi</p>
+                        </div>
+                        <div class="bg-white/60 p-2 rounded-lg text-center shadow-sm border border-gray-200">
+                            <i class="fas fa-clock text-flag-red mb-1 text-lg"></i>
+                            <p class="text-[10px] font-bold text-gray-700">30-60 Phút</p>
+                        </div>
+                    </div>
+
+                    <div class="bg-white/60 p-3 rounded-lg shadow-sm border border-gray-200">
+                        <h3 class="font-serif font-bold text-flag-red text-sm mb-2 border-b border-gray-300 pb-1">
+                            <i class="fas fa-box-open mr-1"></i> Thành Phần Trò Chơi
+                        </h3>
+                        <ul class="text-[11px] space-y-1.5 text-left list-disc pl-4 text-gray-700">
+                            <li>1 Bàn cờ, 2-6 Token, 1-2 Xúc xắc</li>
+                            <li>Xu Dấu Ấn, Thẻ Quyền Mua Đất</li>
+                            <li>50 Thẻ Câu Hỏi, 30-50 Thẻ Chức Năng</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 2: Luật chơi -->
+        <section id="tab-rules" class="tab-content h-full">
+            <h2 class="text-2xl font-serif font-bold text-flag-red mb-4 flex items-center">
+                <i class="fas fa-scroll mr-2 text-xl"></i> Tóm Tắt Luật Chơi
+            </h2>
+            
+            <div class="bg-white/80 p-4 rounded-xl shadow-sm border border-gray-300/50 mb-4 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1.5 h-full bg-flag-red"></div>
+                <h3 class="font-serif font-bold text-flag-red text-lg mb-2 pl-2">Mục tiêu</h3>
+                <p class="text-sm text-gray-700 mb-3 pl-2">Tích lũy <strong>Tổng Tài Sản</strong> cao nhất.</p>
+                
+                <div class="bg-red-50 p-3 rounded-lg border border-red-100 ml-2">
+                    <p class="text-xs text-red-800 mb-1"><i class="fas fa-exclamation-circle mr-1"></i><strong>Lưu ý quan trọng:</strong></p>
+                    <p class="text-xs text-red-700 leading-relaxed">Số lượng <strong>Ô Dấu Ấn</strong> được ưu tiên hơn khi xét thắng cuộc. <br><em class="opacity-80">(Ví dụ: Người có 3 ô thắng người có 2 ô bất kể số xu)</em></p>
+                </div>
+            </div>
+
+            <div class="bg-white/80 p-4 rounded-xl shadow-sm border border-gray-300/50 mb-4 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1.5 h-full bg-rice-yellow"></div>
+                <h3 class="font-serif font-bold text-yellow-700 text-lg mb-3 pl-2">Cách chơi</h3>
+                <ul class="space-y-3 text-sm text-gray-700 pl-2">
+                    <li class="flex items-start">
+                        <div class="bg-flag-red/10 p-1.5 rounded mr-3 mt-0.5"><i class="fas fa-dice text-flag-red"></i></div>
+                        <p class="pt-1">Tung xúc xắc để di chuyển số bước tương ứng trên bàn cờ.</p>
+                    </li>
+                    <li class="flex items-start">
+                        <div class="bg-yellow-100 p-1.5 rounded mr-3 mt-0.5"><i class="fas fa-bolt text-yellow-600"></i></div>
+                        <p class="pt-1">Thực hiện ngay hiệu ứng của ô khi vừa đặt chân tới.</p>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Tab 3: Tra cứu ô -->
+        <section id="tab-tiles" class="tab-content h-full">
+            <h2 class="text-2xl font-serif font-bold text-flag-red mb-4 flex items-center">
+                <i class="fas fa-search-location mr-2 text-xl"></i> Tra Cứu Các Ô
+            </h2>
+            <div class="grid grid-cols-1 gap-3 pb-6">
+                <!-- 1. Ô Dấu Ấn -->
+                <div class="bg-white/80 p-3 rounded-xl shadow-sm border-l-4 border-flag-red flex">
+                    <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center mr-3 shrink-0">
+                        <i class="fas fa-map-marked-alt text-flag-red text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-[15px] text-flag-red">Ô Dấu Ấn</h3>
+                        <ul class="text-xs text-gray-700 mt-1.5 space-y-1 list-disc pl-3">
+                            <li><span class="font-semibold text-gray-900">Mua:</span> 5 Xu + 1 Quyền mua đất.</li>
+                            <li><span class="font-semibold text-gray-900">Thuế Di Sản:</span> 2 Xu <em class="text-[10px] opacity-80">(có thể trả lời đúng câu hỏi để né thuế)</em>.</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- 2. Ô Câu Hỏi -->
+                <div class="bg-white/80 p-3 rounded-xl shadow-sm border-l-4 border-yellow-500 flex">
+                    <div class="w-10 h-10 bg-yellow-100 rounded-full flex items-center justify-center mr-3 shrink-0">
+                        <i class="fas fa-question text-yellow-600 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-[15px] text-yellow-700">Ô Câu Hỏi</h3>
+                        <p class="text-xs text-gray-700 mt-1">Trả lời đúng sẽ được tung xúc xắc:</p>
+                        <ul class="text-xs text-gray-700 mt-1 space-y-0.5 list-disc pl-3">
+                            <li><span class="font-semibold text-gray-900">Ra mặt 6:</span> Nhận 1 Quyền mua đất.</li>
+                            <li><span class="font-semibold text-gray-900">Mặt khác:</span> Nhận 1 Xu.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 3. Ô Thẻ Chức Năng -->
+                <div class="bg-white/80 p-3 rounded-xl shadow-sm border-l-4 border-purple-500 flex">
+                    <div class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-3 shrink-0">
+                        <i class="fas fa-bolt text-purple-600 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-[15px] text-purple-700">Ô Thẻ Chức Năng</h3>
+                        <p class="text-xs text-gray-700 mt-1 leading-relaxed">Rút 1 Thẻ Chức Năng và thực hiện ngay hiệu ứng ghi trên thẻ.</p>
+                    </div>
+                </div>
+
+                <!-- 4. Ô Vinh Quang -->
+                <div class="bg-white/80 p-3 rounded-xl shadow-sm border-l-4 border-yellow-400 flex">
+                    <div class="w-10 h-10 bg-yellow-50 rounded-full flex items-center justify-center mr-3 shrink-0 border border-yellow-300">
+                        <i class="fas fa-star text-yellow-500 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-[15px] text-yellow-600">Ô Vinh Quang</h3>
+                        <p class="text-xs text-gray-700 mt-1">Được chọn 1 trong 2 phần thưởng:</p>
+                        <ul class="text-xs text-gray-700 mt-1 space-y-0.5 list-disc pl-3">
+                            <li>Nhận ngay <strong>10 Xu</strong>.</li>
+                            <li><strong>HOẶC</strong> trả lời câu hỏi để lấy <strong>1 Quyền mua đất</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- 5. Ô Vào Tù/Nhà Tù -->
+                <div class="bg-white/80 p-3 rounded-xl shadow-sm border-l-4 border-gray-600 flex">
+                    <div class="w-10 h-10 bg-gray-200 rounded-full flex items-center justify-center mr-3 shrink-0">
+                        <i class="fas fa-lock text-gray-700 text-lg"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-serif font-bold text-[15px] text-gray-800">Ô Vào Tù/Nhà Tù</h3>
+                        <p class="text-xs text-gray-700 mt-1">Bị nhốt. Lượt sau, để thoát ra, người chơi phải:</p>
+                        <ul class="text-xs text-gray-700 mt-1 space-y-0.5 list-disc pl-3">
+                            <li>Trả <strong>10 Xu</strong>.</li>
+                            <li><strong>HOẶC</strong> tung xúc xắc ra mặt <strong>1</strong>.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab 4: Bộ bài -->
+        <section id="tab-cards" class="tab-content h-full">
+            <div class="flex justify-between items-end mb-4 border-b border-gray-300 pb-2">
+                <h2 class="text-2xl font-serif font-bold text-flag-red flex items-center">
+                    <i class="fas fa-layer-group mr-2 text-xl"></i> Thư Viện Thẻ
+                </h2>
+                <span class="text-xs font-bold text-gray-500 bg-gray-200 px-2 py-1 rounded-full">81 Thẻ</span>
+            </div>
+            
+            <div id="cards-grid" class="grid grid-cols-3 gap-2 pb-6">
+                <!-- Javascript will inject 81 cards here -->
+            </div>
+        </section>
+
+        <!-- Tab 5: Tài sản -->
+        <section id="tab-assets" class="tab-content h-full">
+            <h2 class="text-2xl font-serif font-bold text-flag-red mb-4 flex items-center justify-center">
+                <i class="fas fa-calculator mr-2 text-xl text-flag-red"></i> Tổng Tài Sản
+            </h2>
+            
+            <div class="bg-white/80 p-5 rounded-xl shadow-sm border border-gray-300/50 mb-4">
+                <!-- Input Ô Dấu Ấn -->
+                <div class="flex justify-between items-center bg-red-50 p-3 rounded-lg border border-red-100 mb-3">
+                    <div class="flex items-center">
+                        <i class="fas fa-map-marked-alt text-flag-red mr-3 text-lg"></i>
+                        <div>
+                            <span class="block text-sm font-bold text-gray-800">Số Ô Dấu Ấn</span>
+                            <span class="text-[10px] text-red-600 font-semibold">(x5 điểm)</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="updateAsset('tile', -1)" class="w-8 h-8 bg-white border border-gray-300 rounded shadow-sm text-gray-600 active:bg-gray-100"><i class="fas fa-minus"></i></button>
+                        <span id="tile-count" class="font-bold text-xl w-6 text-center text-flag-red">0</span>
+                        <button onclick="updateAsset('tile', 1)" class="w-8 h-8 bg-white border border-gray-300 rounded shadow-sm text-gray-600 active:bg-gray-100"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+
+                <!-- Input Số Xu -->
+                <div class="flex justify-between items-center bg-yellow-50 p-3 rounded-lg border border-yellow-100">
+                    <div class="flex items-center">
+                        <i class="fas fa-coins text-yellow-600 mr-3 text-lg"></i>
+                        <div>
+                            <span class="block text-sm font-bold text-gray-800">Số Xu Dấu Ấn</span>
+                            <span class="text-[10px] text-yellow-700 font-semibold">(x1 điểm)</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="updateAsset('coin', -1)" class="w-8 h-8 bg-white border border-gray-300 rounded shadow-sm text-gray-600 active:bg-gray-100"><i class="fas fa-minus"></i></button>
+                        <span id="coin-count" class="font-bold text-xl w-6 text-center text-yellow-600">0</span>
+                        <button onclick="updateAsset('coin', 1)" class="w-8 h-8 bg-white border border-gray-300 rounded shadow-sm text-gray-600 active:bg-gray-100"><i class="fas fa-plus"></i></button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tổng điểm -->
+            <div class="bg-paper-dark p-5 rounded-xl shadow-inner border border-yellow-600/30 text-center relative overflow-hidden">
+                <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/aged-paper.png')] opacity-50 mix-blend-multiply pointer-events-none"></div>
+                <div class="relative z-10">
+                    <span class="block text-[11px] font-bold text-gray-600 uppercase tracking-widest mb-1">Tổng Điểm Cuối Cùng</span>
+                    <div class="text-5xl font-serif font-bold text-flag-red mb-3 drop-shadow-sm transition-transform duration-200 inline-block" id="total-score">0</div>
+                    <div>
+                        <button onclick="resetAssets()" class="text-[11px] text-gray-500 underline hover:text-flag-red active:text-flag-red">Làm lại từ đầu</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-4 p-3 bg-red-100/80 rounded-lg border-l-4 border-flag-red shadow-sm">
+                <p class="text-[11px] text-red-800 leading-relaxed"><i class="fas fa-exclamation-triangle mr-1"></i><strong>Quyền Ưu Tiên:</strong> Người sở hữu NHIỀU Ô DẤU ẤN HƠN sẽ giành chiến thắng, bất kể số Xu. Tổng điểm chỉ dùng để so sánh khi số Ô Dấu Ấn bằng nhau!</p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Lightbox cho ảnh thẻ -->
+    <div id="lightbox" class="fixed inset-0 bg-black/90 z-[60] hidden flex-col items-center justify-center opacity-0 transition-opacity duration-300 backdrop-blur-sm" onclick="closeLightbox()">
+        <div class="absolute top-4 right-4 text-white/70 hover:text-white p-2 cursor-pointer z-[70]">
+            <i class="fas fa-times text-3xl"></i>
+        </div>
+        <img id="lightbox-img" src="" alt="Chi tiết thẻ" class="max-w-[95%] max-h-[85%] object-contain rounded-xl shadow-2xl scale-95 transition-transform duration-300">
+    </div>
+
+    <!-- Bottom Navigation -->
+    <nav class="bg-paper-dark border-t border-yellow-600/20 fixed bottom-0 w-full max-w-md mx-auto z-20 pb-safe shadow-[0_-4px_6px_-1px_rgba(0,0,0,0.1)]">
+        <ul class="flex justify-around items-center h-16 px-1">
+            <li class="flex-1">
+                <button onclick="switchTab('overview', this)" class="nav-btn active w-full h-full flex flex-col items-center justify-center text-flag-red transition-all duration-200 scale-105">
+                    <i class="fas fa-home text-xl mb-1 drop-shadow-sm"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter">Tổng Quan</span>
+                </button>
+            </li>
+            <li class="flex-1">
+                <button onclick="switchTab('rules', this)" class="nav-btn w-full h-full flex flex-col items-center justify-center text-gray-500 hover:text-flag-red/80 transition-all duration-200">
+                    <i class="fas fa-book text-xl mb-1"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter">Luật Chơi</span>
+                </button>
+            </li>
+            <li class="flex-1">
+                <button onclick="switchTab('tiles', this)" class="nav-btn w-full h-full flex flex-col items-center justify-center text-gray-500 hover:text-flag-red/80 transition-all duration-200">
+                    <i class="fas fa-search-location text-xl mb-1"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter">Tra Cứu</span>
+                </button>
+            </li>
+            <li class="flex-1">
+                <button onclick="switchTab('cards', this)" class="nav-btn w-full h-full flex flex-col items-center justify-center text-gray-500 hover:text-flag-red/80 transition-all duration-200">
+                    <i class="fas fa-layer-group text-xl mb-1"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter">Bộ Bài</span>
+                </button>
+            </li>
+            <li class="flex-1">
+                <button onclick="switchTab('assets', this)" class="nav-btn w-full h-full flex flex-col items-center justify-center text-gray-500 hover:text-flag-red/80 transition-all duration-200">
+                    <i class="fas fa-coins text-xl mb-1"></i>
+                    <span class="text-[10px] font-bold uppercase tracking-tighter">Tài Sản</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+    <script>
+        // Chuyển tab Navigation
+        function switchTab(tabId, btnElement) {
+            // Ẩn tất cả tab nội dung
+            document.querySelectorAll('.tab-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            // Hiển thị tab được chọn
+            document.getElementById('tab-' + tabId).classList.add('active');
+
+            // Reset trạng thái tất cả nút nav
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                btn.classList.remove('text-flag-red', 'active', 'scale-105');
+                btn.classList.add('text-gray-500');
+                btn.querySelector('i').classList.remove('drop-shadow-sm');
+            });
+            
+            // Cập nhật trạng thái nút nav được chọn
+            btnElement.classList.remove('text-gray-500');
+            btnElement.classList.add('text-flag-red', 'active', 'scale-105');
+            btnElement.querySelector('i').classList.add('drop-shadow-sm');
+        }
+
+        // Quản lý Tính Tài Sản
+        let assetData = { tile: 0, coin: 0 };
+        const tileDisplay = document.getElementById('tile-count');
+        const coinDisplay = document.getElementById('coin-count');
+        const totalDisplay = document.getElementById('total-score');
+
+        function updateAsset(type, amount) {
+            assetData[type] += amount;
+            if (assetData[type] < 0) assetData[type] = 0;
+            
+            // Cập nhật UI bộ đếm
+            if (type === 'tile') tileDisplay.textContent = assetData.tile;
+            if (type === 'coin') coinDisplay.textContent = assetData.coin;
+            
+            calculateTotal();
+        }
+
+        function calculateTotal() {
+            const total = (assetData.tile * 5) + assetData.coin;
+            
+            // Animation nhẹ khi đổi số
+            totalDisplay.style.transform = 'scale(1.15)';
+            setTimeout(() => {
+                totalDisplay.style.transform = 'scale(1)';
+            }, 150);
+            
+            totalDisplay.textContent = total;
+        }
+
+        function resetAssets() {
+            if(confirm('Bạn có chắc muốn làm lại từ đầu không?')) {
+                assetData = { tile: 0, coin: 0 };
+                tileDisplay.textContent = 0;
+                coinDisplay.textContent = 0;
+                calculateTotal();
+            }
+        }
+
+        // Quản lý Render Bộ bài (Lazy Load)
+        function renderCards() {
+            const grid = document.getElementById('cards-grid');
+            if(!grid) return;
+            
+            grid.innerHTML = ''; // Làm sạch
+            
+            for (let i = 1; i <= 81; i++) {
+                // Giả định tên file ảnh là 1.jpg, 2.jpg... trong thư mục assets/cards/
+                const imgUrl = `assets/cards/${i}.jpg`;
+                
+                const cardDiv = document.createElement('div');
+                cardDiv.className = 'aspect-[2/3] bg-paper-dark rounded-lg shadow-sm border border-gray-300 overflow-hidden relative cursor-pointer group active:scale-95 transition-transform';
+                cardDiv.onclick = () => openLightbox(imgUrl);
+                
+                // Cấu trúc HTML của thẻ (Sử dụng loading="lazy")
+                cardDiv.innerHTML = `
+                    <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
+                        <i class="fas fa-image text-2xl opacity-20 mb-1"></i>
+                        <span class="text-[8px] opacity-40">Đang tải...</span>
+                    </div>
+                    <img src="${imgUrl}" alt="Thẻ ${i}" loading="lazy" class="w-full h-full object-cover relative z-10 transition-transform duration-300 group-hover:scale-105" onerror="this.style.opacity='0'">
+                    <div class="absolute bottom-0 right-0 bg-black/60 text-white text-[9px] px-1.5 py-0.5 rounded-tl z-20 font-sans backdrop-blur-sm">${i}</div>
+                `;
+                
+                grid.appendChild(cardDiv);
+            }
+        }
+
+        // Gọi khi vừa tải xong DOM
+        document.addEventListener('DOMContentLoaded', renderCards);
+
+        // Quản lý Lightbox (Xem ảnh to)
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+
+        function openLightbox(src) {
+            lightboxImg.src = src;
+            lightbox.classList.remove('hidden');
+            lightbox.classList.add('flex');
+            
+            // Timeout nhỏ để kích hoạt CSS transition
+            setTimeout(() => {
+                lightbox.classList.remove('opacity-0');
+                lightboxImg.classList.remove('scale-95');
+                lightboxImg.classList.add('scale-100');
+            }, 10);
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('opacity-0');
+            lightboxImg.classList.remove('scale-100');
+            lightboxImg.classList.add('scale-95');
+            
+            // Đợi animation hoàn tất rồi mới ẩn hẳn
+            setTimeout(() => {
+                lightbox.classList.add('hidden');
+                lightbox.classList.remove('flex');
+                lightboxImg.src = '';
+            }, 300);
+        }
+    </script>
+</body>
+</html>
