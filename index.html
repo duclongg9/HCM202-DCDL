@@ -382,15 +382,25 @@
 
             <!-- Content for Questions -->
             <div id="subtab-questions" class="block">
-                <div id="cards-grid-questions" class="grid grid-cols-2 gap-4 pb-32">
+                <div id="cards-grid-questions" class="grid grid-cols-2 gap-4 pb-6">
                     <!-- JavaScript sẽ render thẻ Câu Hỏi vào đây -->
+                </div>
+                <div class="flex justify-center pb-32">
+                    <button onclick="document.getElementById('main-content').scrollTo({top: 0, behavior: 'smooth'})" class="bg-[#2d4a22] text-paper px-6 py-2 rounded-full font-serif font-bold shadow-md border-2 border-[#d4c3a3] active:scale-95 transition-transform flex items-center">
+                        <i class="fas fa-arrow-up mr-2"></i> Về đầu Thư Khố
+                    </button>
                 </div>
             </div>
 
             <!-- Content for Functions -->
             <div id="subtab-functions" class="hidden">
-                <div id="cards-grid-functions" class="grid grid-cols-2 gap-4 pb-32">
+                <div id="cards-grid-functions" class="grid grid-cols-2 gap-4 pb-6">
                     <!-- JavaScript sẽ render thẻ Chức Năng vào đây -->
+                </div>
+                <div class="flex justify-center pb-32">
+                    <button onclick="document.getElementById('main-content').scrollTo({top: 0, behavior: 'smooth'})" class="bg-[#2d4a22] text-paper px-6 py-2 rounded-full font-serif font-bold shadow-md border-2 border-[#d4c3a3] active:scale-95 transition-transform flex items-center">
+                        <i class="fas fa-arrow-up mr-2"></i> Về đầu Thư Khố
+                    </button>
                 </div>
             </div>
         </section>
