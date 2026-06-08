@@ -278,74 +278,82 @@
 
         <!-- ================= TAB 3: CẨM NANG Ô ================= -->
         <section id="tab-tiles" class="tab-section">
-            <h2 class="text-2xl font-serif font-black text-flag-red mb-1 text-center uppercase drop-shadow-sm tracking-wide">
-                <i class="fas fa-map-signs mr-2 text-royal-blue"></i> Tra cứu Ô
-            </h2>
-            <div class="vintage-divider"></div>
+            <div class="bg-card-bg border-y-[3px] border-card-border shadow-sm py-3 mb-6 relative mt-2 -mx-4 px-4">
+                <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJz48ZmlsdGVyIGlkPSdub2lzZUZpbHRlcic+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuOScgbnVtT2N0YXZlcz0nNCcgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJyBmaWx0ZXI9J3VybCgibm9pc2VGaWx0ZXIpJyBvcGFjaXR5PScwLjE1Jy8+PC9zdmc+'); pointer-events: none;"></div>
+                <h2 class="text-xl font-serif font-black text-[#2c241b] text-center uppercase tracking-widest relative z-10">
+                    <i class="fas fa-map-signs text-flag-red mr-2 drop-shadow-sm"></i> Tra cứu Ô
+                </h2>
+            </div>
             
-            <div class="space-y-4 mt-4">
+            <div class="space-y-4">
                 <!-- Ô Dấu Ấn -->
                 <div class="bg-card-bg p-4 rounded-xl shadow-md border border-card-border border-b-[4px] card-3d flex items-start">
-                    <div class="w-12 h-12 rounded bg-[#f1d0c9] flex items-center justify-center shrink-0 mr-4 border-2 border-[#d2a39a] shadow-inner">
-                        <i class="fas fa-flag text-flag-red text-2xl drop-shadow-md"></i>
+                    <div class="w-8 shrink-0 mr-3 mt-1 flex justify-center">
+                        <i class="fas fa-flag text-[#4a4031] text-3xl drop-shadow-md"></i>
                     </div>
-                    <div>
-                        <h3 class="font-serif font-bold text-flag-red text-lg mb-1">Ô Dấu Ấn</h3>
-                        <p class="text-xs text-gray-800 font-medium leading-relaxed">
-                            <strong>Giá mua:</strong> 5 Xu + 1 Quyền mua đất.<br>
-                            <strong>Thuế:</strong> 2 Xu (trả lời đúng né được thuế).
+                    <div class="flex-1">
+                        <h3 class="font-serif font-bold text-[#2d4a22] text-lg mb-1 border-b border-[#d4c3a3] pb-1">Ô Dấu Ấn</h3>
+                        <p class="text-sm text-gray-800 font-medium leading-relaxed mt-2">
+                            Mua đất: <span class="text-flag-red font-bold">-5 Xu</span> & <span class="text-flag-red font-bold">-1 Quyền mua đất</span><br>
+                            Bị phạt Thuế: <span class="text-flag-red font-bold">-2 Xu</span> <span class="text-xs text-gray-600">(trả lời đúng né được thuế)</span>
                         </p>
                     </div>
                 </div>
 
                 <!-- Ô Câu Hỏi -->
                 <div class="bg-card-bg p-4 rounded-xl shadow-md border border-card-border border-b-[4px] card-3d flex items-start">
-                    <div class="w-12 h-12 rounded bg-[#e8deba] flex items-center justify-center shrink-0 mr-4 border-2 border-[#c2b281] shadow-inner">
-                        <i class="fas fa-question text-gold text-2xl drop-shadow-md"></i>
+                    <div class="w-8 shrink-0 mr-3 mt-1 flex justify-center">
+                        <i class="fas fa-question text-[#4a4031] text-3xl drop-shadow-md"></i>
                     </div>
-                    <div>
-                        <h3 class="font-serif font-bold text-gold text-lg mb-1" style="color: #9a7000;">Ô Câu Hỏi</h3>
-                        <p class="text-xs text-gray-800 font-medium leading-relaxed">
-                            Trả lời đúng -> Tung xúc xắc. Mặt 6 nhận <strong>1 Quyền mua đất</strong>. Mặt khác nhận <strong>1 Xu</strong>.
+                    <div class="flex-1">
+                        <h3 class="font-serif font-bold text-[#2d4a22] text-lg mb-1 border-b border-[#d4c3a3] pb-1">Ô Câu Hỏi</h3>
+                        <p class="text-sm text-gray-800 font-medium leading-relaxed mt-2">
+                            Trả lời đúng được tung xúc xắc:<br>
+                            • Mặt 6: Nhận <span class="text-[#2d4a22] font-bold">+1 Quyền mua đất</span><br>
+                            • Mặt khác: Nhận <span class="text-[#b8860b] font-bold">+1 Xu</span>
                         </p>
                     </div>
                 </div>
 
                 <!-- Thẻ Chức Năng -->
                 <div class="bg-card-bg p-4 rounded-xl shadow-md border border-card-border border-b-[4px] card-3d flex items-start">
-                    <div class="w-12 h-12 rounded bg-[#d5dec9] flex items-center justify-center shrink-0 mr-4 border-2 border-[#a3b88b] shadow-inner">
-                        <i class="fas fa-bolt text-royal-blue text-2xl drop-shadow-md"></i>
+                    <div class="w-8 shrink-0 mr-3 mt-1 flex justify-center">
+                        <i class="fas fa-scroll text-[#4a4031] text-3xl drop-shadow-md"></i>
                     </div>
-                    <div>
-                        <h3 class="font-serif font-bold text-royal-blue text-lg mb-1">Ô Thẻ Chức Năng</h3>
-                        <p class="text-xs text-gray-800 font-medium leading-relaxed">
-                            Rút 1 Thẻ Chức Năng và thực hiện hiệu ứng ngay lập tức.
+                    <div class="flex-1">
+                        <h3 class="font-serif font-bold text-[#2d4a22] text-lg mb-1 border-b border-[#d4c3a3] pb-1">Ô Thẻ Chức Năng</h3>
+                        <p class="text-sm text-gray-800 font-medium leading-relaxed mt-2">
+                            Rút 1 Thẻ Chức Năng từ bộ bài và thực hiện hiệu ứng ngay lập tức.
                         </p>
                     </div>
                 </div>
 
                 <!-- Ô Vinh Quang -->
                 <div class="bg-card-bg p-4 rounded-xl shadow-md border border-card-border border-b-[4px] card-3d flex items-start">
-                    <div class="w-12 h-12 rounded bg-[#e8deba] flex items-center justify-center shrink-0 mr-4 border-2 border-[#c2b281] shadow-inner">
-                        <i class="fas fa-crown text-gold text-2xl drop-shadow-md"></i>
+                    <div class="w-8 shrink-0 mr-3 mt-1 flex justify-center">
+                        <i class="fas fa-crown text-[#4a4031] text-3xl drop-shadow-md"></i>
                     </div>
-                    <div>
-                        <h3 class="font-serif font-bold text-gold text-lg mb-1" style="color: #9a7000;">Ô Vinh Quang</h3>
-                        <p class="text-xs text-gray-800 font-medium leading-relaxed">
-                            Chọn lấy <strong>10 Xu</strong> HOẶC trả lời câu hỏi lấy <strong>1 Quyền mua đất</strong>.
+                    <div class="flex-1">
+                        <h3 class="font-serif font-bold text-[#2d4a22] text-lg mb-1 border-b border-[#d4c3a3] pb-1">Ô Vinh Quang</h3>
+                        <p class="text-sm text-gray-800 font-medium leading-relaxed mt-2">
+                            Được chọn 1 trong 2 phần thưởng:<br>
+                            • Lấy thẳng <span class="text-[#b8860b] font-bold">+10 Xu</span><br>
+                            • Trả lời câu hỏi để nhận <span class="text-[#2d4a22] font-bold">+1 Quyền mua đất</span>
                         </p>
                     </div>
                 </div>
 
                 <!-- Ô Vào Tù -->
                 <div class="bg-card-bg p-4 rounded-xl shadow-md border border-card-border border-b-[4px] card-3d flex items-start">
-                    <div class="w-12 h-12 rounded bg-[#d4c3a3] flex items-center justify-center shrink-0 mr-4 border-2 border-[#bfae91] shadow-inner">
-                        <i class="fas fa-lock text-[#4a4031] text-2xl drop-shadow-md"></i>
+                    <div class="w-8 shrink-0 mr-3 mt-1 flex justify-center">
+                        <i class="fas fa-lock text-[#4a4031] text-3xl drop-shadow-md"></i>
                     </div>
-                    <div>
-                        <h3 class="font-serif font-bold text-[#4a4031] text-lg mb-1">Ô Vào Tù (Nhà Tù)</h3>
-                        <p class="text-xs text-gray-800 font-medium leading-relaxed">
-                            Bị nhốt. Lượt sau để thoát ra phải trả <strong>10 Xu</strong> HOẶC tung xúc xắc ra mặt <strong>1</strong>.
+                    <div class="flex-1">
+                        <h3 class="font-serif font-bold text-[#2d4a22] text-lg mb-1 border-b border-[#d4c3a3] pb-1">Ô Nhà Tù</h3>
+                        <p class="text-sm text-gray-800 font-medium leading-relaxed mt-2">
+                            Bị nhốt. Lượt sau để thoát ra phải chọn:<br>
+                            • Nộp phạt <span class="text-flag-red font-bold">-10 Xu</span><br>
+                            • Tung xúc xắc ra mặt 1.
                         </p>
                     </div>
                 </div>
