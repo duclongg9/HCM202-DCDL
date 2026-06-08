@@ -424,12 +424,12 @@
             let htmlContent = '';
             for (let i = 1; i <= 81; i++) {
                 // Sử dụng loading="lazy" để chống lag khi tải 81 ảnh
-                htmlContent += \`
-                    <div class="aspect-[2/3] bg-gray-200 rounded-lg shadow-sm overflow-hidden relative cursor-pointer border border-gray-300 card-3d" onclick="openLightbox('assets/cards/\${i}.jpg')">
-                        <img src="assets/cards/\${i}.jpg" alt="Thẻ \${i}" loading="lazy" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x300/e9ddc3/a39375?text=Card+\${i}'">
-                        <div class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] px-1.5 py-0.5 rounded">\${i}</div>
+                htmlContent += `
+                    <div class="aspect-[2/3] bg-gray-200 rounded-lg shadow-sm overflow-hidden relative cursor-pointer border border-gray-300 card-3d" onclick="openLightbox('assets/cards/${i}.jpg')">
+                        <img src="assets/cards/${i}.jpg" alt="Thẻ ${i}" loading="lazy" class="w-full h-full object-cover" onerror="this.src='https://placehold.co/200x300/e9ddc3/a39375?text=Card+${i}'">
+                        <div class="absolute bottom-1 right-1 bg-black/70 text-white text-[9px] px-1.5 py-0.5 rounded">${i}</div>
                     </div>
-                \`;
+                `;
             }
             grid.innerHTML = htmlContent;
         }
