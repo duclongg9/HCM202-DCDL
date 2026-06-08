@@ -563,11 +563,12 @@
                     </div>
                 `;
                 
-                // Giả định 50 thẻ đầu là câu hỏi, 31 thẻ sau là chức năng
-                if (i < 50) {
-                    htmlQuestions += htmlContent;
-                } else {
+                // Thẻ 1-30 (index 0-29) là Thẻ Chức Năng
+                // Thẻ 31-81 (index 30-80) là Thẻ Câu Hỏi
+                if (i < 30) {
                     htmlFunctions += htmlContent;
+                } else {
+                    htmlQuestions += htmlContent;
                 }
             }
             gridQuestions.innerHTML = htmlQuestions;
