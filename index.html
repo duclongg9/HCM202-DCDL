@@ -86,11 +86,12 @@
         }
     </style>
 </head>
-<body class="text-gray-900 font-sans h-screen flex flex-col relative max-w-md mx-auto shadow-2xl border-x-2 border-card-border">
+<body class="text-gray-900 font-sans leading-relaxed h-screen flex flex-col relative max-w-md mx-auto shadow-2xl border-x-2 border-card-border">
 
     <!-- Header -->
-    <header class="bg-flag-red text-paper p-4 shadow-lg z-10 flex flex-col items-center justify-center border-b-[6px] border-flag-red-dark relative overflow-hidden">
+    <header class="bg-flag-red text-paper p-4 shadow-xl z-10 flex flex-col items-center justify-center border-b-[6px] border-flag-red-dark relative overflow-hidden">
         <div class="absolute inset-0 opacity-10" style="background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJz48ZmlsdGVyIGlkPSdub2lzZUZpbHRlcic+PGZlVHVyYnVsZW5jZSB0eXBlPSdmcmFjdGFsTm9pc2UnIGJhc2VGcmVxdWVuY3k9JzAuOScgbnVtT2N0YXZlcz0nNCcgc3RpdGNoVGlsZXM9J3N0aXRjaCcvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPScxMDAnIGhlaWdodD0nMTAwJyBmaWx0ZXI9J3VybCgibm9pc2VGaWx0ZXIpJyBvcGFjaXR5PScwLjE1Jy8+PC9zdmc+');"></div>
+        <i class="fas fa-shoe-prints text-gold text-2xl mb-1 drop-shadow-md relative z-10 opacity-90"></i>
         <h1 class="text-2xl font-serif font-black text-center uppercase tracking-[0.2em] drop-shadow-md relative z-10">Dấu Chân Độc Lập</h1>
         <div class="w-1/2 h-0.5 bg-gold mt-2 opacity-80 relative z-10"></div>
     </header>
@@ -211,7 +212,7 @@
             <div class="space-y-4">
                 <details class="bg-card-bg rounded-xl shadow-md border border-card-border border-b-[4px] overflow-hidden group mt-4">
                     <summary class="font-serif font-bold text-flag-red text-lg p-4 cursor-pointer flex justify-between items-center bg-[#eae0cd] group-open:bg-card-bg transition-colors">
-                        <span class="flex items-center"><i class="fas fa-bullseye text-flag-red w-6 text-center mr-2"></i>Mục Tiêu Trò Chơi</span>
+                        <span class="flex items-center"><i class="fas fa-bullseye text-flag-red w-6 text-center mr-2 drop-shadow-sm"></i>Mục Tiêu Trò Chơi</span>
                         <i class="fas fa-chevron-down text-[#a89574] group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <div class="p-4 pt-0 border-t border-card-border text-sm text-gray-800 leading-relaxed font-medium">
@@ -225,7 +226,7 @@
 
                 <details class="bg-card-bg rounded-xl shadow-md border border-card-border border-b-[4px] overflow-hidden group">
                     <summary class="font-serif font-bold text-flag-red text-lg p-4 cursor-pointer flex justify-between items-center bg-[#eae0cd] group-open:bg-card-bg transition-colors">
-                        <span class="flex items-center"><i class="fas fa-cogs text-royal-blue w-6 text-center mr-2"></i>Chuẩn Bị (Setup)</span>
+                        <span class="flex items-center"><i class="fas fa-cogs text-flag-red w-6 text-center mr-2 drop-shadow-sm"></i>Chuẩn Bị (Setup)</span>
                         <i class="fas fa-chevron-down text-[#a89574] group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <div class="p-4 pt-0 border-t border-card-border text-sm text-gray-800 leading-relaxed font-medium">
@@ -241,7 +242,7 @@
 
                 <details class="bg-card-bg rounded-xl shadow-md border border-card-border border-b-[4px] overflow-hidden group" open>
                     <summary class="font-serif font-bold text-flag-red text-lg p-4 cursor-pointer flex justify-between items-center bg-[#eae0cd] group-open:bg-card-bg transition-colors">
-                        <span class="flex items-center"><i class="fas fa-compass text-gold w-6 text-center mr-2"></i>Lượt Chơi Cơ Bản</span>
+                        <span class="flex items-center"><i class="fas fa-compass text-flag-red w-6 text-center mr-2 drop-shadow-sm"></i>Lượt Chơi Cơ Bản</span>
                         <i class="fas fa-chevron-down text-[#a89574] group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <div class="p-4 pt-0 border-t border-card-border text-sm text-gray-800 leading-relaxed font-medium">
@@ -256,7 +257,7 @@
 
                 <details class="bg-card-bg rounded-xl shadow-md border border-card-border border-b-[4px] overflow-hidden group">
                     <summary class="font-serif font-bold text-flag-red text-lg p-4 cursor-pointer flex justify-between items-center bg-[#eae0cd] group-open:bg-card-bg transition-colors">
-                        <span class="flex items-center"><i class="fas fa-landmark text-royal-blue w-6 text-center mr-2"></i>Quyền Mua Đất & Thuế</span>
+                        <span class="flex items-center"><i class="fas fa-landmark text-flag-red w-6 text-center mr-2 drop-shadow-sm"></i>Quyền Mua Đất & Thuế</span>
                         <i class="fas fa-chevron-down text-[#a89574] group-open:rotate-180 transition-transform"></i>
                     </summary>
                     <div class="p-4 pt-0 border-t border-card-border text-sm text-gray-800 leading-relaxed font-medium">
@@ -422,39 +423,39 @@
             <li class="flex-1 h-full relative">
                 <button onclick="switchTab('overview', this)" class="nav-btn text-flag-red w-full h-full flex flex-col items-center justify-center transition-colors duration-200">
                     <i class="fas fa-home text-xl mb-1.5 drop-shadow-sm"></i>
-                    <span class="text-[9px] font-bold tracking-wider uppercase">Tổng quan</span>
+                    <span class="text-[10px] font-bold tracking-wider uppercase">Tổng quan</span>
                 </button>
                 <div class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[3px] bg-flag-red rounded-t transition-opacity duration-200 opacity-100 shadow-[0_-2px_5px_rgba(122,27,24,0.5)]"></div>
             </li>
             
             <li class="flex-1 h-full relative">
-                <button onclick="switchTab('rules', this)" class="nav-btn text-[#a89574] w-full h-full flex flex-col items-center justify-center transition-colors duration-200">
+                <button onclick="switchTab('rules', this)" class="nav-btn text-[#8b795d] w-full h-full flex flex-col items-center justify-center transition-colors duration-200 hover:text-flag-red">
                     <i class="fas fa-scroll text-xl mb-1.5 drop-shadow-sm"></i>
-                    <span class="text-[9px] font-bold tracking-wider uppercase">Hướng dẫn</span>
+                    <span class="text-[10px] font-bold tracking-wider uppercase">Hướng dẫn</span>
                 </button>
                 <div class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[3px] bg-flag-red rounded-t transition-opacity duration-200 opacity-0 shadow-[0_-2px_5px_rgba(122,27,24,0.5)]"></div>
             </li>
             
             <li class="flex-1 h-full relative">
-                <button onclick="switchTab('tiles', this)" class="nav-btn text-[#a89574] w-full h-full flex flex-col items-center justify-center transition-colors duration-200">
+                <button onclick="switchTab('tiles', this)" class="nav-btn text-[#8b795d] w-full h-full flex flex-col items-center justify-center transition-colors duration-200 hover:text-flag-red">
                     <i class="fas fa-map-signs text-xl mb-1.5 drop-shadow-sm"></i>
-                    <span class="text-[9px] font-bold tracking-wider uppercase">Tra cứu</span>
+                    <span class="text-[10px] font-bold tracking-wider uppercase">Tra cứu</span>
                 </button>
                 <div class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[3px] bg-flag-red rounded-t transition-opacity duration-200 opacity-0 shadow-[0_-2px_5px_rgba(122,27,24,0.5)]"></div>
             </li>
             
             <li class="flex-1 h-full relative">
-                <button onclick="switchTab('cards', this)" class="nav-btn text-[#a89574] w-full h-full flex flex-col items-center justify-center transition-colors duration-200">
+                <button onclick="switchTab('cards', this)" class="nav-btn text-[#8b795d] w-full h-full flex flex-col items-center justify-center transition-colors duration-200 hover:text-flag-red">
                     <i class="fas fa-images text-xl mb-1.5 drop-shadow-sm"></i>
-                    <span class="text-[9px] font-bold tracking-wider uppercase">Kho thẻ</span>
+                    <span class="text-[10px] font-bold tracking-wider uppercase">Kho thẻ</span>
                 </button>
                 <div class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[3px] bg-flag-red rounded-t transition-opacity duration-200 opacity-0 shadow-[0_-2px_5px_rgba(122,27,24,0.5)]"></div>
             </li>
             
             <li class="flex-1 h-full relative">
-                <button onclick="switchTab('assets', this)" class="nav-btn text-[#a89574] w-full h-full flex flex-col items-center justify-center transition-colors duration-200">
+                <button onclick="switchTab('assets', this)" class="nav-btn text-[#8b795d] w-full h-full flex flex-col items-center justify-center transition-colors duration-200 hover:text-flag-red">
                     <i class="fas fa-calculator text-xl mb-1.5 drop-shadow-sm"></i>
-                    <span class="text-[9px] font-bold tracking-wider uppercase">Kho bạc</span>
+                    <span class="text-[10px] font-bold tracking-wider uppercase">Kho bạc</span>
                 </button>
                 <div class="nav-indicator absolute bottom-0 left-1/2 -translate-x-1/2 w-10 h-[3px] bg-flag-red rounded-t transition-opacity duration-200 opacity-0 shadow-[0_-2px_5px_rgba(122,27,24,0.5)]"></div>
             </li>
@@ -474,14 +475,14 @@
             
             allBtns.forEach((btn, index) => {
                 btn.classList.remove('text-flag-red');
-                btn.classList.add('text-[#a89574]');
+                btn.classList.add('text-[#8b795d]');
                 if (allIndicators[index]) {
                     allIndicators[index].classList.remove('opacity-100');
                     allIndicators[index].classList.add('opacity-0');
                 }
             });
             
-            btnElement.classList.remove('text-[#a89574]');
+            btnElement.classList.remove('text-[#8b795d]');
             btnElement.classList.add('text-flag-red');
             if (btnElement.nextElementSibling) {
                 btnElement.nextElementSibling.classList.remove('opacity-0');
